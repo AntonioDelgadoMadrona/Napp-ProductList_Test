@@ -15,13 +15,6 @@ export const StyledNavbar = styled.header`
   height: 70px;
   color: #fff;
   box-sizing: border-box;
-
-  @media ${device.tabletS} {
-    padding: 10px 30px 0px 30px;
-    height: 85px;
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto;
-  }
 `;
 
 export const ImgContainer = styled.div`
@@ -33,8 +26,7 @@ export const ImgContainer = styled.div`
   cursor: pointer;
 
   @media ${device.tabletS} {
-    justify-self: center;
-    width: 100px;
+    width: 150px;
   }
 
   & > img {
@@ -59,7 +51,7 @@ export const LinksContainer = styled.div`
     }
 
     & span {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       text-decoration: none;
       display: flex;
       align-items: flex-end;

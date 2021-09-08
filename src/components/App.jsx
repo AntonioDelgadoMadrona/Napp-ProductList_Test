@@ -4,7 +4,7 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 // COMPONENTS
 import { Layout } from "./Layout/Layout";
-import ProductListComponent from './ProductList/ProductList';
+import ProductListComponent from "./ProductList/ProductList";
 
 // UTILS
 import { history } from "../utils/history";
@@ -17,12 +17,7 @@ const App = () => (
     <Router history={history}>
       <Layout>
         <Switch>
-          <Route
-            exact
-            path="/Products"
-            component={ProductListComponent}
-          />
-
+          <Route exact path="/Products" component={ProductListComponent} />
           <Redirect to="/Products" />
         </Switch>
       </Layout>

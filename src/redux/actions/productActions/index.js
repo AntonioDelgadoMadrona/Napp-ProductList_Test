@@ -5,13 +5,13 @@ import * as types from './types';
 import * as productService from '../../../services/productService';
 
 // GET MOVIE LIST
-export function getProductListAction(page) {
+export function getProductListAction() {
 
     return async function (dispatch) {
 
         dispatch(request());
 
-        await productService.getProductList(page)
+        await productService.getProductList()
             .then(response => {
                 dispatch(success(response));
             })

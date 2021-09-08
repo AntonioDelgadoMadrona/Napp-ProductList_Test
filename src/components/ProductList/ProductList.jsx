@@ -1,7 +1,5 @@
 // DEPENDENCIES
-import { memo, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import queryString from "querystring";
+import { memo, useEffect, useState } from "react";
 
 // REDUX
 import { connect } from "react-redux";
@@ -17,30 +15,26 @@ import {
   StyledPosterImg,
   InputContainer,
 } from "./styles";
-import { updateURLFilters } from "../../utils/urlFilters";
 
 const MovieList = memo(({ getProductListAction, productList }) => {
-  // FILTERS FROM URL
-  const history = useHistory();
-  const { search } = useLocation();
-  const { searchText, page } = queryString.decode(search.replace("?", ""));
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    const currentPage = page ? Number(page) : 1;
-    getProductListAction(currentPage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, searchText]);
+    getProductListAction();
+  }, []);
 
-  // UPDATE URL FILTER BY KEY VALUE
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    updateURLFilters(name, value, history);
-  };
+  // IF THE UI IS SEARCHING
+  let filteredProducts = [...productList];
+  if (searchText && productList.length > 0) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product?.model?.toLowerCase().includes(searchText.toLowerCase())
+    );
+  } else filteredProducts = [...productList];
 
   // SAVE THE CORRECT COLLECTION FOR SHOW IN ORDER
   let products = [];
-  if (productList.length > 0) {
-    productList.map((product) => {
+  if (filteredProducts?.length > 0) {
+    filteredProducts.map((product) => {
       const updatedItem = {
         image: (
           <StyledPosterImg>
@@ -57,8 +51,6 @@ const MovieList = memo(({ getProductListAction, productList }) => {
     });
   }
 
-  console.log(productList);
-
   return (
     <Container>
       <h1>Descubre nuestros productos</h1>
@@ -68,7 +60,7 @@ const MovieList = memo(({ getProductListAction, productList }) => {
           label="¿Buscas algun modelo en concreto?"
           name="searchText"
           value={searchText ?? ""}
-          onChange={handleChange}
+          onChange={({ target }) => setSearchText(target.value)}
           disableError
         />
       </InputContainer>

@@ -41,7 +41,7 @@ const Navbar = memo(({ cartList }) => {
 const mapState = (state) => {
   const { productReducer } = state;
   return {
-    cartList: productReducer.cartList,
+    cartList: productReducer?.cartList,
   };
 };
 

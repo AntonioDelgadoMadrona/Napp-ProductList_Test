@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 100%;
   max-width: 1400px;
-  margin: 70px auto 0 auto;
-  padding: 5px 0;
+  margin: 70px auto;
   overflow: hidden;
 
   @media ${device.tabletL} {
@@ -21,10 +20,5 @@ export const Wrapper = styled.div`
 
   @media ${device.tabletM} {
     max-width: 90%;
-    padding-bottom: 20px;
-  }  
-
-  @media ${device.tabletS} {
-    margin-top: 85px;
   }  
 `;

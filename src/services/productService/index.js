@@ -4,7 +4,7 @@ import { handleResponse, handleError } from '../../utils/apiUtils';
 const API_DOMAIN = 'https://front-test-api.herokuapp.com';
 
 // GET MOVIE LIST
-export async function getProductList(page) {
+export async function getProductList() {
 
     const requestOptions = {
         method: 'GET',
