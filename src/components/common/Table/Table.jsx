@@ -1,14 +1,15 @@
 // DEPENDENCIES
 import { memo } from "react";
-import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
+
+// UTILS
+import { history } from "../../../utils/history";
 
 // STYLES
 import { StyledTable, StyledContainer, StyledItem } from "./styles";
 import noResults from "../../../images/noresults.png";
 
-const Table = memo(({ items, page, handlePage }) => {
-  const history = useHistory();
-
+const Table = memo(({ items }) => {
   return (
     <StyledTable>
       <StyledContainer>
@@ -17,7 +18,10 @@ const Table = memo(({ items, page, handlePage }) => {
             <StyledItem
               key={item.id}
               onClick={() =>
-                history.push({ pathname: "/Movie", search: `?id=${item.id}` })
+                history.push({
+                  pathname: "/ProductDetails",
+                  search: `?id=${item.id}`,
+                })
               }
             >
               {item.image}
@@ -34,5 +38,9 @@ const Table = memo(({ items, page, handlePage }) => {
     </StyledTable>
   );
 });
+
+Table.propTypes = {
+  items: PropTypes.array,
+};
 
 export { Table };

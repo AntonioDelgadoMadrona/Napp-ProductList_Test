@@ -5,6 +5,7 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 // COMPONENTS
 import { Layout } from "./Layout/Layout";
 import ProductListComponent from "./ProductList/ProductList";
+import ProductDetails from "./ProductDetails/ProductDetails";
 
 // UTILS
 import { history } from "../utils/history";
@@ -18,6 +19,7 @@ const App = () => (
       <Layout>
         <Switch>
           <Route exact path="/Products" component={ProductListComponent} />
+          <Route exact path="/ProductDetails" component={ProductDetails} />
           <Redirect to="/Products" />
         </Switch>
       </Layout>
@@ -25,4 +27,4 @@ const App = () => (
   </div>
 );
 
-export { App };
+export default App;

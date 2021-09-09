@@ -7,11 +7,7 @@ import { routerReducer, routerMiddleware } from "react-router-redux";
 import productReducer from "./reducers/productReducer";
 
 export default function configureStore(initialState, browserHistory) {
-
-  const middlewares = [
-    thunk,
-    routerMiddleware(browserHistory),
-  ];
+  const middlewares = [thunk, routerMiddleware(browserHistory)];
 
   // In development, use the browser's Redux dev tools extension if installed
   const enhancers = [];
@@ -22,7 +18,7 @@ export default function configureStore(initialState, browserHistory) {
     window.__REDUX_DEVTOOLS_EXTENSION__
   ) {
     enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
-  };
+  }
 
   const rootReducer = combineReducers({
     productReducer,
@@ -34,4 +30,4 @@ export default function configureStore(initialState, browserHistory) {
     initialState,
     compose(applyMiddleware(...middlewares), ...enhancers)
   );
-};
+}

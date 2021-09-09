@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import { memo, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 // REDUX
 import { connect } from "react-redux";
@@ -68,6 +69,11 @@ const MovieList = memo(({ getProductListAction, productList }) => {
     </Container>
   );
 });
+
+MovieList.propTypes = {
+  getProductListAction: PropTypes.func,
+  productList: PropTypes.array,
+};
 
 const mapState = (state) => {
   const { productReducer } = state;

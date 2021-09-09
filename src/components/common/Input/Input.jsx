@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 
 // STYLED
 import {
@@ -43,5 +44,17 @@ const Input = memo(
     );
   }
 );
+
+Input.propTypes = {
+  type: "text" | "password" | "email",
+  name: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.any,
+  placeholder: PropTypes.string,
+  error: PropTypes.string,
+  disabled: PropTypes.bool,
+  disableError: PropTypes.bool,
+};
 
 export { Input };

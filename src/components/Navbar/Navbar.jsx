@@ -1,6 +1,7 @@
 // DEPENDENCIES
 import { memo } from "react";
 import { useHistory } from "react-router";
+import PropTypes from "prop-types";
 
 // REDUX
 import { connect } from "react-redux";
@@ -37,6 +38,10 @@ const Navbar = memo(({ cartList }) => {
     </StyledNavbar>
   );
 });
+
+Navbar.propTypes = {
+  cartList: PropTypes.array,
+};
 
 const mapState = (state) => {
   const { productReducer } = state;

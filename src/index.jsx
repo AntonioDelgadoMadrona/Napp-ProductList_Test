@@ -7,12 +7,12 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 
 // COMPONENTS
-import { App } from "./components/App";
+import App from "./components/App";
 
 import reportWebVitals from "./reportWebVitals";
 
 // CONFIGURE STORE
-import { history } from './utils/history'
+import { history } from "./utils/history";
 const store = configureStore({}, history);
 
 ReactDOM.render(

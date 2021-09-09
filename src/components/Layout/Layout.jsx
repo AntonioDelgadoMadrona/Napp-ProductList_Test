@@ -8,16 +8,15 @@ import { Navbar } from "../Navbar/Navbar";
 // STYLES
 import { Layout as Container, Wrapper } from "./styles";
 
-const Layout = memo(({ children, }) => {
+const Layout = memo((props) => {
+  const { pathname } = useLocation();
 
-    const { pathname } = useLocation();
-
-    return (
-        <Container>
-            <Navbar />
-            <Wrapper path={pathname}>{children}</Wrapper>
-        </Container>
-    );
+  return (
+    <Container>
+      <Navbar />
+      <Wrapper path={pathname}>{props.children}</Wrapper>
+    </Container>
+  );
 });
 
 export { Layout };
