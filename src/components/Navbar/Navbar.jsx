@@ -3,9 +3,6 @@ import { memo } from "react";
 import { useHistory } from "react-router";
 import PropTypes from "prop-types";
 
-// REDUX
-import { connect } from "react-redux";
-
 // STYLED
 import { StyledNavbar, ImgContainer, LinksContainer } from "./styles";
 
@@ -26,11 +23,11 @@ const Navbar = memo(({ cartList }) => {
       <LinksContainer>
         <ul>
           <li>
-            <span
-              className={`${cartList?.length > 0 ? "" : "inactive"}`}
-              onClick={() => console.log()}
-            >
+            <span className={`${cartList?.length > 0 ? "" : "inactive"}`}>
               <FontAwesomeIcon icon={faShoppingCart} />
+              {cartList?.length > 0 && (
+                <span className="cartListLength">{cartList?.length}</span>
+              )}
             </span>
           </li>
         </ul>
@@ -43,15 +40,4 @@ Navbar.propTypes = {
   cartList: PropTypes.array,
 };
 
-const mapState = (state) => {
-  const { productReducer } = state;
-  return {
-    cartList: productReducer?.cartList,
-  };
-};
-
-export { Navbar };
-
-const NavBarContainer = connect(mapState)(Navbar);
-
-export default NavBarContainer;
+export default Navbar;

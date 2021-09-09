@@ -54,24 +54,29 @@ export const LinksContainer = styled.div`
       font-size: 1.5rem;
       text-decoration: none;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       width: max-content;
       justify-content: space-between;
       height: 30px;
       color: inherit;
-      cursor: pointer;
-
-      :hover {
-        opacity: 0.8;
-      }
 
       & > svg {
-        margin-right: 5px;
+        margin-right: 3px;
       }
 
       &.inactive {
         pointer-events: none;
         opacity: 0.6;
+      }
+
+      & > .cartListLength {
+        background-color: #fff;
+        font-size: 11px;
+        font-weight: bolder;
+        color: #000;
+        padding: 5px;
+        border-radius: 50%;
+        height: 8px;
       }
     }
   }

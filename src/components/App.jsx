@@ -1,19 +1,27 @@
 // DEPENDENCIES
 import React from "react";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+
+// REDUX
+import { Provider } from "react-redux";
 
 // COMPONENTS
-import { Layout } from "./Layout/Layout";
+import Layout from "./Layout/Layout";
 import ProductListComponent from "./ProductList/ProductList";
 import ProductDetails from "./ProductDetails/ProductDetails";
 
 // STYLE
 import "./App.css";
 
-const App = (props) => {
+const App = ({ store, history }) => {
   return (
-    <div data-testid="app-component">
-      <Router history={props.history}>
+    <Provider store={store}>
+      <Router history={history}>
         <Layout>
           <Switch>
             <Route exact path="/Products" component={ProductListComponent} />
@@ -22,8 +30,8 @@ const App = (props) => {
           </Switch>
         </Layout>
       </Router>
-    </div>
+    </Provider>
   );
 };
 
-export { App };
+export default App;

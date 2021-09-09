@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getProductListAction } from "../../redux/actions/productActions";
 
 // COMPONENTS
-import { Table } from "../common/Table/Table";
+import Table from "../common/Table/Table";
 import { Input } from "../common/Input/Input";
 
 // STYLED
@@ -26,12 +26,14 @@ const MovieList = memo(({ getProductListAction, productList }) => {
   }, []);
 
   // IF THE UI IS SEARCHING
-  let filteredProducts = [...productList];
+  let filteredProducts = [
+    ...productList?.filter((product) => product.price !== ""),
+  ];
   if (searchText && productList.length > 0) {
     filteredProducts = filteredProducts.filter((product) =>
       product?.model?.toLowerCase().includes(searchText.toLowerCase())
     );
-  } else filteredProducts = [...productList];
+  }
 
   // SAVE THE CORRECT COLLECTION FOR SHOW IN ORDER
   let products = [];

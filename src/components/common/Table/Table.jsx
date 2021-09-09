@@ -1,15 +1,14 @@
 // DEPENDENCIES
 import { memo } from "react";
 import PropTypes from "prop-types";
-
-// UTILS
-import { history } from "../../../utils/history";
+import { useHistory } from "react-router";
 
 // STYLES
 import { StyledTable, StyledContainer, StyledItem } from "./styles";
 import noResults from "../../../images/noresults.png";
 
 const Table = memo(({ items }) => {
+  const history = useHistory();
   return (
     <StyledTable>
       <StyledContainer>
@@ -43,4 +42,4 @@ Table.propTypes = {
   items: PropTypes.array,
 };
 
-export { Table };
+export default Table;

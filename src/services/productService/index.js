@@ -24,3 +24,15 @@ export async function getProductDetails(id) {
 
     return await fetch(`${API_DOMAIN}/api/product/${id}`, requestOptions).then(handleResponse, handleError);
 };
+
+// ADD PRODUCT TO CART
+export async function addProductToCart(product) {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...product })
+    };
+
+    return await fetch(`${API_DOMAIN}/api/cart`, requestOptions).then(handleResponse, handleError);
+};

@@ -1,24 +1,22 @@
 // DEPENDENCIES
 import React from "react";
 import ReactDOM from "react-dom";
+import { createBrowserHistory } from 'history';
 
 // REDUX
-import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 
 // COMPONENTS
-import { App } from "./components/App";
+import App from "./components/App";
 
 import reportWebVitals from "./reportWebVitals";
 
 // CONFIGURE STORE
-import { history } from "./utils/history";
+const history = createBrowserHistory();
 const store = configureStore({}, history);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App history={history} />
-  </Provider>,
+  <App store={store} history={history} />,
   document.getElementById("root")
 );
 

@@ -5,6 +5,7 @@ import { routerReducer, routerMiddleware } from "react-router-redux";
 
 // REDUCERS
 import productReducer from "./reducers/productReducer";
+import alertReducer from "./reducers/alertReducer";
 
 export default function configureStore(initialState, browserHistory) {
   const middlewares = [thunk, routerMiddleware(browserHistory)];
@@ -22,6 +23,7 @@ export default function configureStore(initialState, browserHistory) {
 
   const rootReducer = combineReducers({
     productReducer,
+    alertReducer,
     routing: routerReducer,
   });
 

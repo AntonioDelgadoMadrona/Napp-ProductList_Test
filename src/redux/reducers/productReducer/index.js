@@ -30,6 +30,36 @@ export default function productReducer(state = initialState, action) {
       };
     case types.GET_PRODUCT_DETAILS_FAILURE:
       return { ...state, gettingProductDetails: false };
+    // SET PRODUCT REDUCER
+    case types.SET_PRODUCT_REDUCER:
+      let newState = { ...state };
+      action.payload.map((tuple) => {
+        const [key, value] = tuple;
+        return (newState = {
+          ...newState,
+          [key]: value,
+        });
+      });
+      return (state = { ...newState });
+    // ADD PRODUCT TO CART
+    case types.ADD_PRODUCT_TO_CART_REQUEST:
+      return { ...state, addingProductToCart: true };
+    case types.ADD_PRODUCT_TO_CART_SUCCESS:
+      return {
+        ...state,
+        addingProductToCart: false,
+        cartList: [...state.cartList, action.payload],
+      };
+    case types.ADD_PRODUCT_TO_CART_FAILURE:
+      return { ...state, addingProductToCart: false };
+    // REMOVE PRODUCT FROM CART
+    case types.REMOVE_PRODUCT_FROM_CART_REQUEST:
+      return {
+        ...state,
+        cartList: [
+          ...state.cartList.filter((product) => product.id !== action.payload),
+        ],
+      };
 
     default:
       return { ...state };
