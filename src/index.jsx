@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 
 // COMPONENTS
-import App from "./components/App";
+import { App } from "./components/App";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -17,7 +17,7 @@ const store = configureStore({}, history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App history={history} />
   </Provider>,
   document.getElementById("root")
 );

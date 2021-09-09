@@ -22,6 +22,7 @@ const MovieList = memo(({ getProductListAction, productList }) => {
 
   useEffect(() => {
     getProductListAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // IF THE UI IS SEARCHING
