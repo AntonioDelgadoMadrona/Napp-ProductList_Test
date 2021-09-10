@@ -12,7 +12,7 @@ export async function getProductList() {
     };
 
     return await fetch(`${API_DOMAIN}/api/product`, requestOptions).then(handleResponse, handleError);
-};
+}
 
 // GET PRODUCT DETAILS
 export async function getProductDetails(id) {
@@ -23,7 +23,7 @@ export async function getProductDetails(id) {
     };
 
     return await fetch(`${API_DOMAIN}/api/product/${id}`, requestOptions).then(handleResponse, handleError);
-};
+}
 
 // ADD PRODUCT TO CART
 export async function addProductToCart(product) {
@@ -35,4 +35,4 @@ export async function addProductToCart(product) {
     };
 
     return await fetch(`${API_DOMAIN}/api/cart`, requestOptions).then(handleResponse, handleError);
-};
+}

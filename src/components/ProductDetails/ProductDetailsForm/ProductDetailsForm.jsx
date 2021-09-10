@@ -86,4 +86,6 @@ ProductDetailsForm.propTypes = {
   removeProductFromCart: PropTypes.func,
 };
 
+ProductDetailsForm.displayName = 'ProductDetailsForm';
+
 export { ProductDetailsForm };

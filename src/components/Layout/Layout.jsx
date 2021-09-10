@@ -39,4 +39,6 @@ const mapState = (state) => {
   };
 };
 
+Layout.displayName = 'Layout';
+
 export default connect(mapState)(Layout);

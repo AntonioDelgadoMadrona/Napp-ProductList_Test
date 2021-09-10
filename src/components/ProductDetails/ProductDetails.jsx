@@ -41,7 +41,6 @@ const ProductDetails = memo(
     useEffect(() => {
       getProductDetailsAction(productId);
       return () => setProductReducerAction([["productDetails", null]]);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // CHECKS IF THE PRODUCT IS ADDED TO FAV LIST
@@ -161,6 +160,8 @@ const mapDispatch = {
   addProductToCartAction,
   removeProductFromCartAction,
 };
+
+ProductDetails.displayName = 'ProductDetails';
 
 export { ProductDetails };
 

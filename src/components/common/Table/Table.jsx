@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { memo } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router";
 
@@ -41,5 +41,7 @@ const Table = memo(({ items }) => {
 Table.propTypes = {
   items: PropTypes.array,
 };
+
+Table.displayName = 'Table';
 
 export default Table;

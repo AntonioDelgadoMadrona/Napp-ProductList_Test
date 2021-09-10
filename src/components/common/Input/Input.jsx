@@ -57,4 +57,6 @@ Input.propTypes = {
   disableError: PropTypes.bool,
 };
 
+Input.displayName = 'Input';
+
 export { Input };

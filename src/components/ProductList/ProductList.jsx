@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 // REDUX
@@ -22,7 +22,6 @@ const ProductList = memo(({ getProductListAction, productList }) => {
 
   useEffect(() => {
     getProductListAction();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // IF THE UI IS SEARCHING
@@ -90,6 +89,8 @@ const mapState = (state) => {
 const mapDispatch = {
   getProductListAction,
 };
+
+ProductList.displayName = 'ProductList';
 
 export { ProductList };
 

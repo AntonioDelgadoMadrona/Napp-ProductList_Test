@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { memo, useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ToastContainer, toast as customToast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,5 +30,7 @@ const Toast = memo(({ toast }) => {
 Toast.propTypes = {
   toast: PropTypes.object,
 };
+
+Toast.displayName = "Toast";
 
 export { Toast };

@@ -22,4 +22,4 @@ export default function alertReducer(state = {}, action) {
     default:
       return { ...state };
   }
-};
+}

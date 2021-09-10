@@ -21,10 +21,10 @@ export function getProductListAction() {
             });
     };
 
-    function request() { return { type: types.GET_PRODUCT_LIST_REQUEST } };
-    function success(payload) { return { type: types.GET_PRODUCT_LIST_SUCCESS, payload } };
-    function failure() { return { type: types.GET_PRODUCT_LIST_FAILURE } };
-};
+    function request() { return { type: types.GET_PRODUCT_LIST_REQUEST } }
+    function success(payload) { return { type: types.GET_PRODUCT_LIST_SUCCESS, payload } }
+    function failure() { return { type: types.GET_PRODUCT_LIST_FAILURE } }
+}
 
 // GET PRODUCT DETAILS
 export function getProductDetailsAction(id) {
@@ -42,15 +42,15 @@ export function getProductDetailsAction(id) {
             });
     };
 
-    function request() { return { type: types.GET_PRODUCT_DETAILS_REQUEST } };
-    function success(payload) { return { type: types.GET_PRODUCT_DETAILS_SUCCESS, payload } };
-    function failure() { return { type: types.GET_PRODUCT_DETAILS_FAILURE } };
-};
+    function request() { return { type: types.GET_PRODUCT_DETAILS_REQUEST } }
+    function success(payload) { return { type: types.GET_PRODUCT_DETAILS_SUCCESS, payload } }
+    function failure() { return { type: types.GET_PRODUCT_DETAILS_FAILURE } }
+}
 
 // SET PRODUCT REDUCER 
 export function setProductReducerAction(tuplesArray) {
     return { type: types.SET_PRODUCT_REDUCER, payload: tuplesArray }
-};
+}
 
 // ADD PRODUCT TO CART
 export function addProductToCartAction(product) {
@@ -60,7 +60,7 @@ export function addProductToCartAction(product) {
         dispatch(request());
 
         await productService.addProductToCart(product)
-            .then(response => {
+            .then(() => {
                 dispatch(success(product));
                 dispatch(alertActions.showToastAction({ message: "Has añadido el producto al carrito", type: "SUCCESS" }));
             })
@@ -69,10 +69,10 @@ export function addProductToCartAction(product) {
             });
     };
 
-    function request() { return { type: types.ADD_PRODUCT_TO_CART_REQUEST } };
-    function success(payload) { return { type: types.ADD_PRODUCT_TO_CART_SUCCESS, payload } };
-    function failure() { return { type: types.ADD_PRODUCT_TO_CART_FAILURE } };
-};
+    function request() { return { type: types.ADD_PRODUCT_TO_CART_REQUEST } }
+    function success(payload) { return { type: types.ADD_PRODUCT_TO_CART_SUCCESS, payload } }
+    function failure() { return { type: types.ADD_PRODUCT_TO_CART_FAILURE } }
+}
 
 // REMOVE PRODUCT FROM CART
 export function removeProductFromCartAction(id) {
@@ -82,5 +82,5 @@ export function removeProductFromCartAction(id) {
         dispatch(alertActions.showToastAction({ message: "Has eliminado el producto del carrito", type: "SUCCESS" }));
     };
 
-    function request(payload) { return { type: types.REMOVE_PRODUCT_FROM_CART_REQUEST, payload } };
-};
+    function request(payload) { return { type: types.REMOVE_PRODUCT_FROM_CART_REQUEST, payload } }
+}

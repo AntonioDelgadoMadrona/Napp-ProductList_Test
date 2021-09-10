@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { memo } from "react";
+import React, { memo } from "react";
 import { useHistory } from "react-router";
 import PropTypes from "prop-types";
 
@@ -39,5 +39,7 @@ const Navbar = memo(({ cartList }) => {
 Navbar.propTypes = {
   cartList: PropTypes.array,
 };
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;
