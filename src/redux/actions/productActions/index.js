@@ -52,16 +52,16 @@ export function setProductReducerAction(tuplesArray) {
     return { type: types.SET_PRODUCT_REDUCER, payload: tuplesArray }
 };
 
-// ADD MOVIE TO FAVOURITE LIST
-export function addProductToCartAction(movieDetails) {
+// ADD PRODUCT TO CART
+export function addProductToCartAction(product) {
 
     return async function (dispatch) {
 
         dispatch(request());
 
-        await productService.addProductToCart(movieDetails)
+        await productService.addProductToCart(product)
             .then(response => {
-                dispatch(success(movieDetails));
+                dispatch(success(product));
                 dispatch(alertActions.showToastAction({ message: "Has añadido el producto al carrito", type: "SUCCESS" }));
             })
             .catch(() => {

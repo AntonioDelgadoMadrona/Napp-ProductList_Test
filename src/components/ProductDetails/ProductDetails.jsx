@@ -44,7 +44,7 @@ const ProductDetails = memo(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // CHECKS IF THE MOVIE IS ADDED TO FAV LIST
+    // CHECKS IF THE PRODUCT IS ADDED TO FAV LIST
     const isOnCart = cartList?.some(
       (product) => product.id === productDetails?.id
     );
@@ -115,6 +115,10 @@ const ProductDetails = memo(
               <h4>
                 Peso: <span>{productDetails?.weight}gr</span>
               </h4>
+              <div className="productDetails__price">
+                <span>{productDetails?.price}€</span>
+                <span className="oldPrice">{`${Number(productDetails?.price) + 25}€`}</span>
+              </div>
             </div>
 
             <div className="productDetails__actions">

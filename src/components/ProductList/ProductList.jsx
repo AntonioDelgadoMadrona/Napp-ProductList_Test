@@ -17,7 +17,7 @@ import {
   InputContainer,
 } from "./styles";
 
-const MovieList = memo(({ getProductListAction, productList }) => {
+const ProductList = memo(({ getProductListAction, productList }) => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -30,8 +30,10 @@ const MovieList = memo(({ getProductListAction, productList }) => {
     ...productList?.filter((product) => product.price !== ""),
   ];
   if (searchText && productList.length > 0) {
-    filteredProducts = filteredProducts.filter((product) =>
-      product?.model?.toLowerCase().includes(searchText.toLowerCase())
+    filteredProducts = filteredProducts.filter(
+      (product) =>
+        product?.model?.toLowerCase().includes(searchText.toLowerCase()) ||
+        product?.brand?.toLowerCase().includes(searchText.toLowerCase())
     );
   }
 
@@ -73,7 +75,7 @@ const MovieList = memo(({ getProductListAction, productList }) => {
   );
 });
 
-MovieList.propTypes = {
+ProductList.propTypes = {
   getProductListAction: PropTypes.func,
   productList: PropTypes.array,
 };
@@ -89,8 +91,8 @@ const mapDispatch = {
   getProductListAction,
 };
 
-export { MovieList };
+export { ProductList };
 
-const productListContainer = connect(mapState, mapDispatch)(MovieList);
+const ProductListContainer = connect(mapState, mapDispatch)(ProductList);
 
-export default productListContainer;
+export default ProductListContainer;

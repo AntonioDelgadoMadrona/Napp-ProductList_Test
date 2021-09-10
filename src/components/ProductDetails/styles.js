@@ -125,6 +125,25 @@ export const StyledDetails = styled.div`
       font-weight: 300;
     }
 
+    & .productDetails__price {
+      grid-column: 1 / -1;
+      margin: 20px auto 0 auto;
+
+      & > span {
+        font-size: 1.6rem;
+        font-weight: bolder;
+        color: #e00052;
+        font-family: "Trade Gothic LT Std", Arial, Helvetica, sans-serif;
+
+        &.oldPrice {
+          margin-left: 10px;
+          font-size: 1.3rem;
+          text-decoration: line-through;
+          font-weight: bold;
+        }
+      }
+    }
+
     @media ${device.mobileL} {
       grid-template-columns: auto;
     }

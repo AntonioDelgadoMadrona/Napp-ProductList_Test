@@ -18,14 +18,29 @@ import ProductDetails from "./ProductDetails/ProductDetails";
 // STYLE
 import "./App.css";
 
+export const routes = [
+  { path: "/Products", name: "Products", Component: ProductListComponent },
+  {
+    path: "/ProductDetails",
+    name: "Product Details",
+    Component: ProductDetails,
+  },
+];
+
 const App = ({ store, history }) => {
   return (
     <Provider store={store}>
       <Router history={history}>
         <Layout>
           <Switch>
-            <Route exact path="/Products" component={ProductListComponent} />
-            <Route exact path="/ProductDetails" component={ProductDetails} />
+            {routes.map((route, key) => (
+              <Route
+                key={key}
+                exact
+                path={route.path}
+                component={route.Component}
+              />
+            ))}
             <Redirect to="/Products" />
           </Switch>
         </Layout>

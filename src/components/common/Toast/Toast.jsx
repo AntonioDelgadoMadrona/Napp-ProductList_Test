@@ -5,7 +5,7 @@ import { ToastContainer, toast as customToast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // STYLED
-import { Container } from "./styled";
+import { Container } from "./styles";
 
 const Toast = memo(({ toast }) => {
   useEffect(() => {

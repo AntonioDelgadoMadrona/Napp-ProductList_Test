@@ -40,7 +40,7 @@ const ProductDetailsForm = memo(
                   value={storage.code}
                   selected={index === 0}
                 >
-                  {storage.name}
+                  {storage.name ?? '-'}
                 </option>
               ))}
             </select>
